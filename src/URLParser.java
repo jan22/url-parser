@@ -9,9 +9,14 @@ public class URLParser {
     private String path = "";
 
 
-    public URLParser (String url) {
+    public URLParser () {}
 
+    public URLParser (String url) {
         setUrl(url);
+
+    }
+
+    public void checkUrl() {
         String[] urlParts = getUrl().split("://");
 
         if (urlParts.length > 1) {
@@ -35,6 +40,14 @@ public class URLParser {
                 setPath(siteAndPath[1]);
             }
         }
+    }
+
+    public void printUrlParts () {
+        System.out.println("Url: " + getUrl());
+        System.out.println("Protocol: " + getProtocol());
+        System.out.println("Site: " + getSite());
+        System.out.println("Path: " + getPath());
+        System.out.println();
     }
 
 
@@ -68,5 +81,7 @@ public class URLParser {
 
     public void setUrl(String url) {
         this.url = url;
+
+        checkUrl();
     }
 }
