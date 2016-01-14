@@ -42,6 +42,7 @@ public class URLParserTest {
     public void shouldHaveAPath() {
         URLParser p = new URLParser("ftp://ftp.jan-niebuhr.com/yeha/man");
         assertTrue("Result should have a path!", p.getPath().equals("yeha/man"));
+        assertFalse("Blaaaa", p.getPath().isEmpty());
     }
 
     @Test
