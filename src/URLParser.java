@@ -3,6 +3,7 @@
  */
 public class URLParser {
 
+    private String url = "";
     private String protocol = "";
     private String site = "";
     private String path = "";
@@ -10,7 +11,8 @@ public class URLParser {
 
     public URLParser (String url) {
 
-        String[] urlParts = url.split("://");
+        setUrl(url);
+        String[] urlParts = getUrl().split("://");
 
         if (urlParts.length > 1) {
 
@@ -19,7 +21,7 @@ public class URLParser {
 
         } else {
 
-            checkSiteAndPath(url);
+            checkSiteAndPath(getUrl());
 
         }
     }
@@ -58,5 +60,13 @@ public class URLParser {
 
     public void setSite(String site) {
         this.site = site;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
