@@ -1,6 +1,10 @@
 import org.junit.Test;
+import static org.mockito.Mockito.*;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
+
 
 /**
  * Created by niebuhr on 12.01.16.
@@ -9,11 +13,13 @@ import static org.junit.Assert.*;
 public class URLParserTest {
 
     private URLParser p = new URLParser();
+    private URLParser mockedUrl = mock(URLParser.class);
+
 
     @Test
     public void shouldBeAHttpProtocol() {
-        p.setUrl("http://www.jan-niebuhr.com");
-        assertTrue("Result should be http!", p.getProtocol().equals("http"));
+        mockedUrl.setUrl("http://www.jan-niebuhr.com");
+        when(mockedUrl.getProtocol()).thenReturn("http");
     }
 
     @Test
