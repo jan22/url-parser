@@ -1,4 +1,8 @@
+import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
 import static org.mockito.Mockito.*;
 
 import java.util.List;
@@ -13,7 +17,17 @@ import static org.junit.Assert.*;
 public class URLParserTest {
 
     private URLParser p = new URLParser();
-    private URLParser mockedUrl = mock(URLParser.class);
+
+
+//    private URLParser mockedUrl = mock(URLParser.class);
+    @Mock
+    private URLParser mockedUrl;
+
+
+    @Before
+    public void initMocks() {
+        MockitoAnnotations.initMocks(this);
+    }
 
 
     @Test
